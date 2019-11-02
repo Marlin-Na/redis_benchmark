@@ -16,6 +16,6 @@ function ycsb_run {
 }
 
 echo ============ ycsb load =============
-ycsb_load workloads/workloada
+ycsb_load $1
 echo ============ ycsb run =============
-ycsb_run workloads/workloada
+ycsb_run $1
