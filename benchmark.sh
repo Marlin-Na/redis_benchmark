@@ -9,10 +9,10 @@ redis-server --port 8864 >/dev/null 2>/dev/null &
 YCSB_BIN=./ycsb-redis-binding-0.17.0/bin/ycsb.sh
 
 function ycsb_load {
-    $YCSB_BIN load redis -s -p "redis.port=8864" -P "$@"
+    $YCSB_BIN load redis -s -p "redis.host=127.0.0.1" -p "redis.port=8864" -P "$@"
 }
 function ycsb_run {
-    $YCSB_BIN run redis -s -p "redis.port=8864" -P "$@"
+    $YCSB_BIN run redis -s -p "redis.host=127.0.0.1" -p "redis.port=8864" -P "$@"
 }
 
 echo ============ ycsb load =============
