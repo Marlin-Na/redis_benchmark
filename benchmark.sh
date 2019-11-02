@@ -6,13 +6,13 @@ trap "kill 0" EXIT
 ## Start redis server in background
 redis-server --port 8864 >/dev/null 2>/dev/null &
 
-YCSB_BIN=./YCSB-master/bin/ycsb
+YCSB_BIN=./YCSB-master/bin/ycsb.sh
 
 function ycsb_load {
-    $YCSB_BIN load load redis -s -p "redis.port=6379" -P "$@"
+    $YCSB_BIN load redis -s -p "redis.port=8864" -P "$@"
 }
 function ycsb_run {
-    $YCSB_BIN run load redis -s -p "redis.port=6379" -P "$@"
+    $YCSB_BIN run redis -s -p "redis.port=8864" -P "$@"
 }
 
 echo ============ ycsb load =============
