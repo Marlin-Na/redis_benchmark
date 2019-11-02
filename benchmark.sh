@@ -6,7 +6,7 @@ trap "kill 0" EXIT
 ## Start redis server in background
 redis-server --port 8864 >/dev/null 2>/dev/null &
 
-YCSB_BIN=./YCSB-master/bin/ycsb.sh
+YCSB_BIN=./ycsb-redis-binding-0.17.0/bin/ycsb.sh
 
 function ycsb_load {
     $YCSB_BIN load redis -s -p "redis.port=8864" -P "$@"
